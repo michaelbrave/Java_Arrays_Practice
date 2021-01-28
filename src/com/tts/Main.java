@@ -1,5 +1,6 @@
 package com.tts;
 import java.util.Arrays;
+import java.lang.Math;
 
 // Write a program to sum all the values of a given Array in Java.
 
@@ -9,11 +10,11 @@ public class Main {
 	// write your code here
         int num[] = fill();
         int sum = sum(num);
-        System.out.printf("the sum of the numbers is %d", sum);
+        System.out.printf("the sum of the numbers is %d\n", sum);
         int size = 4;
         int power = 2;
         int [] result = toPower(size, power);
-        System.out.printf("the power of %d, with a size of %d is = %s", power, size, Arrays.toString(result));
+        System.out.printf("the power of %d, with a size of %d is = %s\n", power, size, Arrays.toString(result));
     }
     public static int [] fill() {
         int [] num = {1,5,6,5,4,22};
@@ -33,10 +34,9 @@ public class Main {
     public static int [] toPower(int size, int power) {
         int [] powers = new int[size];
         Arrays.fill(powers, 0);
-        int result = 1;
 
-        for(int i = 1; i < size; i++) {
-            powers[i] = result *= power;
+        for(int i = 0; i < size; i++) {
+            powers[i] = (int)Math.pow(i, power);
         }
         return powers;
     }
