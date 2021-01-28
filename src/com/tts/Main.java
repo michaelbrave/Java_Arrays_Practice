@@ -1,4 +1,5 @@
 package com.tts;
+import java.util.Arrays;
 
 // Write a program to sum all the values of a given Array in Java.
 
@@ -7,10 +8,15 @@ public class Main {
     public static void main(String[] args) {
 	// write your code here
         int num[] = fill();
-        sum(num);
+        int sum = sum(num);
+        System.out.printf("the sum of the numbers is %d", sum);
+        int size = 4;
+        int power = 2;
+        int [] result = toPower(size, power);
+        System.out.printf("the power of %d, with a size of %d is = %s", power, size, Arrays.toString(result));
     }
     public static int [] fill() {
-        int [] num = {0, 0, 0, 0, 0};
+        int [] num = {1,5,6,5,4,22};
         return (num);
     }
     public static int sum(int[] num) {
@@ -21,6 +27,18 @@ public class Main {
             sum += num[i];
         }
         return sum;
+    }
+    // Write a public static method called "toPower" that takes in as parameters two integers called size and power. The method should return an array of size "size" with each array index raised to the value of "power."
+    // So, for example, if we passed in "size = 4" and "power = 2" to the "toPower," the method should return the following result: [0,1,4,9].
+    public static int [] toPower(int size, int power) {
+        int [] powers = new int[size];
+        Arrays.fill(powers, 0);
+        int result = 1;
+
+        for(int i = 1; i < size; i++) {
+            powers[i] = result *= power;
+        }
+        return powers;
     }
 }
 
